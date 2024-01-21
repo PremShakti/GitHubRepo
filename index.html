@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GitHub</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        font-family: sans-serif;
+      }
+      .parantOfprofile {
+        display: flex;
+        width: 100%;
+        /* border: 1px solid red; */
+        padding: 5px;
+        padding-left: 20px;
+        margin-top: 20px;
+      }
+      .main {
+        width: 95%;
+        margin: auto;
+        /* border: 1px solid; */
+      }
+      .p {
+        width: 40%;
+      }
+      p {
+        font-size: small;
+      }
+      .profileCard {
+        width: 100%;
+        display: flex;
+        justify-content: left;
+
+        /* border: 1px solid black; */
+        gap: 50px;
+      }
+
+      .profileImage img {
+        /* border: 2px solid green; */
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        /* overflow: hidden; */
+      }
+      .profileTexts {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+      .parantOfgridCards {
+        margin-top: 25px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 15px;
+        column-gap: 5%;
+      }
+      .card {
+        border: 1px solid;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 5px;
+        padding-left: 15px;
+      }
+      .cardBTNS {
+        display: flex;
+        gap: 10px;
+      }
+      .cardBTNS div {
+        background-color: rgb(34, 155, 253);
+        color: white;
+        padding: 7px;
+        border-radius: 4px;
+      }
+      .pagignationContainer {
+        margin-top: 60px;
+        margin-bottom: 35px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .pagCon {
+        display: flex;
+        /* border: 1px solid rgb(0, 13, 83); */
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .pageBtns {
+        display: flex;
+        border-top: 1px solid rgb(84, 178, 255);
+        border-right: 1px solid rgb(84, 178, 255);
+        border-bottom: 1px solid rgb(84, 178, 255);
+      }
+      .pagebtn {
+        border-left: 1px solid rgb(84, 178, 255);
+        color: rgb(84, 178, 255);
+        padding: 10px;
+        cursor: pointer;
+      }
+      .pgleft {
+        border-left: 0px;
+      }
+      .nextandpreviewcontainer {
+        /* border: 1px solid red; */
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin-top: 20px;
+      }
+      .nextandpreviewcontainer div {
+        border: 1px solid rgb(84, 178, 255);
+        color: rgb(84, 178, 255);
+        width: 100px;
+        padding: 10px 20px;
+        border-radius: 20px;
+        /* border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px; */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .card h2 {
+        color: rgb(84, 178, 255);
+      }
+      perPagecardView{
+        color: blue;
+      }
+      .next{
+        cursor: pointer;
+      }
+      @media screen and (max-width: 720px) {
+        .parantOfgridCards {
+          margin-top: 25px;
+          display: grid;
+          grid-template-columns: repeat(1, 1fr);
+          row-gap: 15px;
+          column-gap: 5%;
+        }
+        .p {
+          width: 90%;
+        }
+        .profileImage img {
+        /* border: 2px solid green; */
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        /* overflow: hidden; */
+      }
+      .profileCard {
+        width: 100%;
+        display: flex;
+        justify-content: left;
+
+        /* border: 1px solid black; */
+        gap: 20px;
+      }
+      .profileTexts {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+      .linkofrepo{
+        margin-top: 20px;
+      }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="main">
+      <!-- profile part -->
+      <div class="parantOfprofile">
+        <div class="p" id="profilecard">
+          
+        </div>
+      </div>
+
+      <!-- repo part -->
+      <div class="parantOfrepos"></div>
+
+      <div class="parantOfpagignation"></div>
+      
+      <div class="parantOfgridCards" id="repoList">
+        
+        
+      </div>
+    </main>
+    <!-- pagignation part -->
+    <div class="pagignationContainer">
+      <div class="pagCon">
+        <div class="pageBtns" id="pagination">
+         
+          <div class="pagebtn">1</div>
+          <div class="pagebtn">2</div>
+          <div class="pagebtn">3</div>
+          <div class="pagebtn">4</div>
+          <div class="pagebtn">5</div>
+          <div class="pagebtn">6</div>
+          <div class="pagebtn">7</div>
+          <div class="pagebtn">8</div>
+          <div class="pagebtn">9</div>
+         
+        </div>
+        <div class="nextandpreviewcontainer">
+          <div id="preview" class="next">Preview</div>
+          <div id="perPagecardView"></div>
+          <div id="nextnumbers" class="next">Next</div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
